@@ -1,0 +1,29 @@
+type Query{
+    obras: [Obra]
+    obrasPorArtista(apellidoArtista:String!): [Obra]
+    artistas: [Artista]
+}
+
+type Mutation{
+    addObra(nueva: ObraInput): Obra
+}
+
+type Obra{
+    id: ID
+    titulo: String
+    precio: Float
+    artista: Artista
+}
+
+input ObraInput{
+    titulo: String
+    artista: String
+    precio: Float
+}
+
+type Artista{
+    id: ID
+    apellido: String
+    nacimiento: Int
+    obras: [Obra]
+}
